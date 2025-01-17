@@ -758,6 +758,7 @@ section,
   display: block;
   background: none;
   border-radius: 0;
+ 
 }
 
 .skills .progress .skill {
@@ -778,13 +779,14 @@ section,
 .skills .progress-bar-wrap {
   background: color-mix(in srgb, var(--default-color), transparent 90%);
   height: 10px;
+ 
 }
 
 .skills .progress-bar {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: var(--accent-color);
+  background-color: green;
 }
 
 /*--------------------------------------------------------------
