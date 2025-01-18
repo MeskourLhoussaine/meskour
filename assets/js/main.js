@@ -219,3 +219,16 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+// Fonction pour afficher les détails du projet dans la modale
+function showDetails() {
+  const modal = new bootstrap.Modal(document.getElementById('projectDetailsModal'), {
+    keyboard: false
+  });
+  
+  // Optionnel: vous pouvez modifier le contenu dynamique ici
+  const iframe = document.getElementById('detailsIframe');
+  iframe.src = "https://meskourlhoussaine.github.io/paiement-widget-CI-CD/"; // Remplacez par l'URL dynamique que vous souhaitez
+
+  // Afficher la modale
+  modal.show();
+}
