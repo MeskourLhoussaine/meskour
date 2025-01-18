@@ -1010,7 +1010,13 @@ section,
   opacity: 1;
   bottom: 0;
 }
+.project-link {
+  transition: color 0.3s ease;
+}
 
+.project-link:hover {
+  color: #007bff; /* Change the color to blue or any color you prefer */
+}
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
