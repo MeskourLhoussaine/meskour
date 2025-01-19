@@ -232,3 +232,4 @@ function showDetails() {
   // Afficher la modale
   modal.show();
 }
+/*pagination*/
