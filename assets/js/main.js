@@ -233,3 +233,46 @@ function showDetails() {
   modal.show();
 }
 /*pagination*/
+/*email */
+document.querySelector('.php-email-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // Empêche la soumission classique du formulaire
+
+  const formData = new FormData(this); // Récupère les données du formulaire
+
+  // Affiche le message de chargement
+  document.querySelector('.loading').style.display = 'block';
+  document.querySelector('.error-message').style.display = 'none';
+  document.querySelector('.sent-message').style.display = 'none';
+
+  // Envoie la requête AJAX
+  fetch(this.action, {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Suppose que le serveur renvoie une réponse JSON
+    })
+    .then(data => {
+      // Cache le message de chargement
+      document.querySelector('.loading').style.display = 'none';
+
+      if (data.success) {
+        // Affiche le message de succès
+        document.querySelector('.sent-message').style.display = 'block';
+      } else {
+        // Affiche le message d'erreur
+        document.querySelector('.error-message').innerText = data.message;
+        document.querySelector('.error-message').style.display = 'block';
+      }
+    })
+    .catch(error => {
+      // Cache le message de chargement et affiche l'erreur
+      document.querySelector('.loading').style.display = 'none';
+      document.querySelector('.error-message').innerText = 'An error occurred. Please try again.';
+      document.querySelector('.error-message').style.display = 'block';
+      console.error('Error:', error);
+    });
+});
